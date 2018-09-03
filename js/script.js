@@ -90,19 +90,35 @@ function slideImg() {
         //给每一个menu-item定义data-index属性，作为索引；不建议添加id，其值会跟圆点id重复
         menuItems[m].setAttribute("data-index",m);
         menuItems[m].onmouseover = function () {
+            var idx = this.getAttribute("data-index");
+            subMenu.className = "sub-menu";
             /**
              * 触发鼠标滑过事件之后，遍历让所有子菜单innerBox隐藏
              * 然后滑到那个就让那个显示
              */
             for (var j = 0;j<innerBox.length;j++){
                 innerBox[j].style.display = 'none';
+                menuItems[j].style.background = 'none';
             }
-            var idx = this.getAttribute("data-index");
-            subMenu.className = "sub-menu";
+            menuItems[idx].style.background = 'rgba(0,0,0,0.1)';
             innerBox[idx].style.display = "block";
         }
-
     }
+
+    //鼠标离开主菜单，即把二级菜单隐藏
+    menu.onmouseout = function () {
+        subMenu.className = "sub-menu hide";
+    }
+
+    //鼠标滑过二级菜单时，让其显示
+    subMenu.onmouseover = function () {
+        this.className = "sub-menu";
+    }
+    //鼠标离开二级菜单时，让其隐藏
+    subMenu.onmouseout = function () {
+        this.className = "sub-menu hide";
+    }
+
 }
 
 //切换图片；index为全局函数，不需要传入
