@@ -14,6 +14,10 @@ var index = 0,
     prev = byId("prev");
     next = byId("next");
     len = pics.length;
+    menu = byId("menu-content");
+    subMenu = byId("sub-menu");
+    innerBox = subMenu.getElementsByClassName("inner-box");
+    menuItems = menu.getElementsByClassName("menu-item");
 
 function slideImg() {
 
@@ -80,7 +84,25 @@ function slideImg() {
         changeImg();
     }
 
+    //导航菜单
+    //遍历主菜单，且绑定事件
+    for (var m = 0;m<menuItems.length;m++){
+        //给每一个menu-item定义data-index属性，作为索引；不建议添加id，其值会跟圆点id重复
+        menuItems[m].setAttribute("data-index",m);
+        menuItems[m].onmouseover = function () {
+            /**
+             * 触发鼠标滑过事件之后，遍历让所有子菜单innerBox隐藏
+             * 然后滑到那个就让那个显示
+             */
+            for (var j = 0;j<innerBox.length;j++){
+                innerBox[j].style.display = 'none';
+            }
+            var idx = this.getAttribute("data-index");
+            subMenu.className = "sub-menu";
+            innerBox[idx].style.display = "block";
+        }
 
+    }
 }
 
 //切换图片；index为全局函数，不需要传入
