@@ -5,4 +5,4 @@
 3.希望的收获：   
 #8195通过实操来加深对“三剑客”的理解，提高对其使用的熟练度。    
 4.项目效果图：
-![image](git@github.com:Dustyzhao/JavaScript_SimpleDemo.git/img/效果图.PNG)
+![image](http://github.com/Dustyzhao/JavaScript_SimpleDemo/raw/master/img/rendering.PNG)
