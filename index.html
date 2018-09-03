@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片轮播示例</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="main" id="main">
+        <!--两部分组成：图片轮播+导航菜单-->
+        <!-- 图片轮播 -->
+        <div class="banner" id="banner">
+            <a href="">
+                <!--采用背景图片的方式实现,slide-active设置当前图片-->
+                <div class="banner-slide slide1 slide-active"></div>
+            </a><a href="">
+                <div class="banner-slide slide2"></div>
+            </a><a href="">
+                <div class="banner-slide slide3"></div>
+            </a>
+        </div>
+        <!-- 上一张、下一张图片跳转
+          跳转按钮定义在轮播图之上，所以要写在banner之外
+          a不含点击事件，用a而不用span是因为a有hover-->
+        <a href="javascript:void (0)" class="button prev" id="prev"></a>
+        <a href="javascript:void (0)" class="button next" id="next"></a>
+
+        <!--圆点导航-->
+        <!--圆点出现在图片上端也需要定位position-->
+        <div class="dots" id="dots">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+<script src="js/script.js"></script>
+</body>
+</html>

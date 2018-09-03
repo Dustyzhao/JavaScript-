@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    list-style: none;
+}
+
+body{
+    font-family: "微软雅黑";
+    color: #14191e;
+}
+
+.main{
+    /*需要根据图片大小来设置*/
+    width: 1200px;
+    height: 460px;
+    margin: 30px auto;
+    /* 内容溢出元素框时省略 */
+    overflow: hidden;
+    position: relative;
+}
+
+.banner{
+    width: 1200px;
+    height: 460px;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.banner-slide{
+    width: 1200px;
+    height: 460px;
+    /*轮播图显示效果为显示隐藏，即覆盖：position*/
+    position: absolute;
+    background-repeat: no-repeat;
+    display: none;
+}
+
+.slide-active{
+    display: block;
+}
+.slide1{
+    background-image:url("../img/bg1.jpg") ;
+}
+
+.slide2{
+    background-image:url("../img/bg2.jpg") ;
+}
+
+.slide3{
+    background-image:url("../img/bg3.jpg") ;
+}
+
+.button{
+    /*需要定位才能出现在图片上方，相对于父盒子main*/
+    position: absolute;
+    width: 40px;
+    height: 80px;
+    /*紧挨着导航菜单右侧，所以left是导航菜单的宽度*/
+    left: 244px;
+    /*下面两者确保button居中，只有top因为本身还有80px的高，所以要-40px*/
+    top:50%;
+    margin-top: -40px;
+    /*不平铺，水平垂直居中*/
+    background: url("../img/arrow.png") no-repeat center center;
+}
+
+.button:hover{
+    /*只改变背景颜色*/
+    background-color: #333333;
+    /*透明度*/
+    opacity: 0.8;
+    /*兼容别的浏览器*/
+    filter: alpha(opacity=80);
+}
+
+.prev{
+    /*旋转按钮，括号中是旋转角度*/
+    transform:rotate(180deg);
+}
+
+.next{
+    /*因为button里定义了left，有left的情况下，这里只写right是不起作用的*/
+    left: auto;
+    right: 0;
+}
+
+.dots{
+    position: absolute;
+    right: 20px;
+    bottom: 24px;
+    text-align: right;
+}
+
+.dots span{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
+    /*定义圆角形状*/
+    border-radius: 50%;
+    /*使用rgba可以同时设置透明度 */
+    background: rgba(7,17,27,0.4);
+    /*添加阴影:参数含义：水平、垂直、阴影距离、模糊程度、阴影颜色*/
+    box-shadow:0 0 0 2px rgba(255,255,255,0.8) inset;
+    /*控制圆点间距离*/
+    margin-left: 8px;
+    /*小手形状光标*/
+    /*cursor: pointer;*/
+}
+
+.dots span.active{
+    box-shadow: 0 0 0 2px rgba(7,17,27,0.4) inset;
+    background: #ffffff;
+}
