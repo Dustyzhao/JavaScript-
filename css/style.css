@@ -3,8 +3,26 @@
     padding: 0;
 }
 
+/*解析一级菜单中的箭头*/
+@font-face {
+    /*给字体取名称*/
+    font-family: "iconfont";
+    src: url("../img/font/iconfont.eot");
+    /*兼容各路浏览器，四种固定后缀*/
+    src: url("../img/font/iconfont.eot") format("embedded-opentype"),
+         url("../img/font/iconfont.woff") format("woff"),
+         url("../img/font/iconfont.ttf") format("truetype"),
+         url("../img/font/iconfont.svg#iconfog") format("svg");
+}
+
 ul{
     list-style: none;
+}
+
+/*去掉超链接上的下划线*/
+a:link,a:visited{
+    text-decoration: none;
+    color: #333333;
 }
 
 body{
@@ -115,4 +133,124 @@ body{
 .dots span.active{
     box-shadow: 0 0 0 2px rgba(7,17,27,0.4) inset;
     background: #ffffff;
+}
+
+/*导航菜单*/
+.menu-box{
+    width: 244px;
+    height: 460px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background: rgba(7,17,27,0.5);
+    opacity: 0.5;
+    /*设置元素堆叠顺序*/
+    z-index: 1;
+}
+
+.menu-content{
+    width: 244px;
+    height: 454px;
+    /*不是mune-box的子元素，依然需要定位*/
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+    /*顶部有6px填充*/
+    padding-top: 6px;
+}
+
+.menu-item{
+    height: 64px;
+    /*考虑到有底边框*/
+    line-height: 66px;
+    font-size: 16px;
+    /*一级菜单间的底边框*/
+    padding: 0 24px;
+    position: relative;
+}
+
+.menu-item a:link,.menu-item a:visited{
+    color: #ffffff;
+}
+
+/*底边框应该定义在<a>上*/
+.menu-item a{
+    /*转成块元素*/
+    display: block;
+    /*设置白色底边框*/
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    /*文字比底边框要缩进一些*/
+    padding: 0px 8px;
+    /*64-1px*/
+    height: 63px;
+}
+
+.menu-item i{
+    /*需要相对于menu-item进行定位*/
+    position: absolute;
+    right: 32px;
+    font-size: 24px;
+    top: 2px;
+    font-family: iconfont;
+    /*去掉倾斜*/
+    font-style: normal;
+    /*不加粗*/
+    font-weight: normal;
+    color: rgba(255,255,255,0.5);
+}
+
+.sub-menu{
+    width: 730px;
+    height: 458px;
+    border: 1px solid #d9dde1;
+    background: #ffffff;
+    position: absolute;
+    /*紧靠左侧的主菜单*/
+    left: 244px;
+    top: 0px;
+    /*优先级最高*/
+    z-index: 999;
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.1);
+}
+
+.inner-box{
+    /*与父盒子一般大*/
+    width: 100%;
+    height: 100%;
+    background: url("../img/fe.png") no-repeat;
+    /*比如显示手机配件，则需要其他三个类别都隐藏。所以初始状态4个类别都隐藏*/
+    display: none;
+}
+
+.sub-inner-box{
+    width: 652%;
+    margin-left: 40px;
+    overflow: hidden;
+}
+
+.title{
+    color: #ff0011;
+    font-size: 16px;
+    line-height: 16px;
+    margin: 28px 0px 30px 0px;
+    font-weight: bold;
+}
+
+.sub-row{
+    margin-bottom: 25px;
+}
+
+.bold{
+    font-weight: bold;
+}
+.mr10{
+    margin-right: 10px;
+}
+.ml10{
+    margin-left: 10px;
+}
+
+.hide{
+    display: none;
 }
